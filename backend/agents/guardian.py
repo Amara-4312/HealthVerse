@@ -1,5 +1,4 @@
 import os
-import sys
 
 # Attempt Google ADK imports
 try:

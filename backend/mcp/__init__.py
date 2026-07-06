@@ -1,4 +1,4 @@
 # MCP package initialization
-from .mcp_stub import MCPClientManager
+from .mcp_manager import MCPClientManager, MCPClientManager as MCPManager, record_call, reset_calls, get_last_calls
 
-__all__ = ["MCPClientManager"]
+__all__ = ["MCPClientManager", "record_call", "reset_calls", "get_last_calls"]

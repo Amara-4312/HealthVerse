@@ -2,13 +2,14 @@ export interface CollaborationStep {
   agent: string;
   action: string;
   status: string;
+  output?: string;
 }
 
 export interface ChatResponse {
-  response: string;
-  agents_consulted: string[];
+  reply: string;
+  activated_agents: string[];
+  mcp_calls: { tool: string; query: string }[];
   collaboration_logs: CollaborationStep[];
-  disclaimer: string;
 }
 
 export interface ChatRequest {

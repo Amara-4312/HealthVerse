@@ -1,5 +1,4 @@
 import os
-import sys
 
 try:
     from google.adk.agents import Agent
