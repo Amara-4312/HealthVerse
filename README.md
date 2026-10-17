@@ -44,23 +44,68 @@ Its intended areas of interaction include:
 
 These describe the project's intended experience. Individual features should be assessed against the implementation before being described as fully functional.
 
-## Multi-Agent Architecture
+## Multi-Agent AI Architecture
 
-HealthVerse uses the **Google Agent Development Kit (ADK)** as part of its multi-agent orchestration architecture.
+HealthVerse is designed around a coordinated multi-agent system using the Google Agent Development Kit (ADK).
 
-The project defines five named agents:
+The architecture consists of a central orchestration agent and four specialist agents, each assigned a distinct role within the health education experience.
 
-| Agent | Architecture component |
+| Agent | Designed Responsibility |
 |---|---|
-| Nova | Specialised AI agent |
-| Insight | Specialised AI agent |
-| Pulse | Specialised AI agent |
-| Vita | Specialised AI agent |
-| Guardian | Specialised AI agent |
+| **Nova** | Central conversational interface and orchestrator, responsible for coordinating specialist agents and synthesising responses |
+| **Insight** | Educational explanations of symptoms, health conditions and related health concepts |
+| **Pulse** | General health awareness, relevant health considerations and factors to monitor |
+| **Vita** | Lifestyle and wellness education, including sleep and healthy habits |
+| **Guardian** | Safety-oriented assessment of potential warning signs and appropriate escalation guidance |
 
-The specific responsibilities, tools and interactions of each agent are defined by the backend implementation and should be documented from their actual configurations.
+### Intended Agent Routing
 
-The multi-agent approach is intended to provide a modular foundation for organising different health-assistance functions.
+The MVP specification defines a concern-based routing approach:
+
+- **Symptoms:** Insight and Pulse
+- **Lifestyle questions:** Vita
+- **Emergency warning signs:** Guardian
+- **General health information:** Insight
+- **Multiple concerns:** Nova coordinates the relevant specialists
+
+This architecture is designed to support collaborative responses rather than relying on a single agent to handle every health-related question.
+
+### Example Interaction
+
+A user reports experiencing headaches and poor sleep.
+
+Within the intended interaction:
+
+1. Nova receives and interprets the question.
+2. Insight provides educational information about the reported concerns.
+3. Vita discusses relevant sleep and wellness habits.
+4. Pulse highlights general health considerations.
+5. Guardian considers whether additional safety guidance is appropriate.
+6. Nova consolidates the contributions into a coherent educational summary.
+
+This sequence represents the specified MVP behaviour. Actual agent routing and execution should be verified against the backend implementation.
+
+### Interactive Health Exploration
+
+The MVP also proposes an interactive human-body interface organised into five initial health constellations:
+
+| Body region | Health constellation |
+|---|---|
+| Brain | Cognitive |
+| Heart | Cardiovascular |
+| Lungs | Respiratory |
+| Stomach | Digestive |
+| Muscles | Movement |
+
+This concept connects conversational health education with visually navigable body systems.
+
+### Product Boundaries
+
+The initial MVP specification excludes user authentication, cloud synchronisation, wearable integration, medication reminders, appointment scheduling, medical-record integration, voice conversations and real-time clinician support.
+
+These capabilities belong to the longer-term product roadmap rather than the initial MVP.
+
+HealthVerse is intended for educational exploration and wellness awareness, not medical diagnosis or clinical decision-making.
 
 ### High-Level Architecture
 
